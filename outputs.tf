@@ -1,13 +1,15 @@
-output "hosted_zone_id" {
-  value = module.route53.hosted_zone_id
+output "bucket_name" {
+  value = module.s3_static_site.bucket_name
 }
 
-output "certificate_arn" {
-  value = module.acm.certificate_arn
+output "bucket_arn" {
+  value = module.s3_static_site.bucket_arn
 }
 
-output "name_servers" {
-  value = module.route53.name_servers
+output "bucket_regional_domain_name" {
+  value = module.s3_static_site.bucket_regional_domain_name
 }
 
-
+output "website_url" {
+  value = "https://${module.cloudfront.cloudfront_domain_name}"
+}

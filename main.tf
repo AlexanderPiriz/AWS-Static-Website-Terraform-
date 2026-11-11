@@ -1,35 +1,30 @@
 terraform {
-    required_providers {
-        aws = {
-            source = "hashicorp/aws"
-            version = "~> 5.0"
-        
-        }
-
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
     }
+  }
 }
 
 provider "aws" {
-    region = "ap-southeast-2"
-
+  region = "ap-southeast-2"
 }
 
 #-----------------------------
-# Route53 Hosted Zone
+# S3 Bucket for the website
 #-----------------------------
-module "route53" {
-    source = "./modules/route53"
-    domain_name = var.domain_name
-
+module "s3_static_site" {
+  source      = "./modules/s3-static-site"
+  bucket_name = "alexbuildcloud-site"
 }
 
 #-----------------------------
-# ACM Certificate (us-east-1)
+# CloudFront (serves the site over HTTPS)
 #-----------------------------
-module "acm" {
-    source         = "./modules/acm"
-    domain_name    = var.domain_name
-    hosted_zone_id = module.route53.hosted_zone_id
+module "cloudfront" {
+  source                         = "./modules/cloudfront"
+  bucket_name                    = module.s3_static_site.bucket_name
+  bucket_arn                     = module.s3_static_site.bucket_arn
+  s3_bucket_regional_domain_name = module.s3_static_site.bucket_regional_domain_name
 }
-
-
