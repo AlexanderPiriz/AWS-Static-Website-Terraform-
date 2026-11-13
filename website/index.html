@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Alex Builds Cloud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexander Piriz | Aspiring Cloud Engineer</title>
+    <style>
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    color: #222;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
   </head>
   <body>
-    <h1>Hello from AWS!</h1>
-    <p>This site is hosted on S3 and served through CloudFront, all built with Terraform.</p>
+    <header>
+      <h1>Alexander Piriz</h1>
+      <p>Aspiring Cloud Engineer building hands-on projects with AWS and Terraform</p>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p>I come from 25 years in hospitality, where I learned to stay calm under pressure and look after customers. I hold a Cert IV in IT (Programming) and the AWS Cloud Practitioner certification, and I build hands-on projects with AWS and Terraform. I’m looking for my first Cloud Engineer role, with a long-term interest in fintech.</p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <h3>Cloud</h3>
+
+<article class="project">
+  <h4>Secure Static Website on AWS</h4>
+  <p>A secure, fast website that can be rebuilt from code if something goes wrong. The S3 bucket is private and only CloudFront can read it, CloudFront caches pages for speed, and Terraform defines everything so it can be recreated the same way every time.</p>
+
+  <img src="static-site-diagram.svg" alt="Diagram showing a visitor's browser requesting the site from CloudFront, which reads files from a private S3 bucket. Route 53 DNS is planned.">
+  <ul class="tags">
+    <li>AWS S3</li>
+    <li>CloudFront</li>
+    <li>Terraform</li>
+    <li>Git</li>
+  </ul>
+
+  <p><a href="https://github.com/AlexanderPiriz/AWS-Static-Website-Terraform-">View on GitHub</a></p>
+</article>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p><a href="mailto:alexanderpiriz@icloud.com">alexanderpiriz@icloud.com</a></p>
+        <p><a href="https://www.linkedin.com/in/alexanderpiriz/">LinkedIn</a></p>
+      </section>
+    </main>
   </body>
 </html>
